@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it as below."
+title: "View Factor Estimation via Supervised Learning: A Machine Learning and Deep Learning Approach"
+type: software
+authors:
+  - family-names: "Mercado"
+    given-names: "M."
+    affiliation: "Departamento de Industrias, Universidad Técnica Federico Santa María"
+  - family-names: "Pinto"
+    given-names: "P.E."
+    affiliation: "Departamento de Industrias, Universidad Técnica Federico Santa María"
+  - family-names: "Verdugo"
+    given-names: "I."
+    affiliation: "Department of Engineering Sciences, Universidad Andrés Bello"
+    orcid: "https://orcid.org/XXXX-XXXX-XXXX-XXXX"
+  - family-names: "Littin"
+    given-names: "M."
+    affiliation: "Departamento de Industrias, Universidad Técnica Federico Santa María"
+  - family-names: "Escudero"
+    given-names: "F."
+    affiliation: "Departamento de Industrias, Universidad Técnica Federico Santa María"
+  - family-names: "Demarco"
+    given-names: "R."
+    affiliation: "Departamento de Industrias, Universidad Técnica Federico Santa María"
+  - family-names: "Fuentes"
+    given-names: "A."
+    affiliation: "Departamento de Industrias, Universidad Técnica Federico Santa María"
+repository-code: "https://github.com/ignaciovermon/IJHMT_ViewFactor_ML_estimation"
+license: CC-BY-NC-4.0
+date-released: "2026-04-15"
+keywords:
+  - view factor
+  - radiative heat transfer
+  - machine learning
+  - deep neural networks
+  - surrogate modeling
+  - multilayer perceptron
+  - fire safety
+  - cone calorimeter
