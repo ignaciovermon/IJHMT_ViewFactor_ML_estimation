@@ -1,4 +1,4 @@
-# View Factor Estimation via Supervised Learning: A Machine Learning and Deep Learning Approach
+# Machine-Learning Surrogate Models for View Factor Estimation in Benchmark Fire Configurations
 
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
@@ -102,8 +102,7 @@ If you use this code or data in your research, please cite:
 
 ```bibtex
 @article{mercado2026viewfactor,
-  title   = {View Factor Estimation via Supervised Learning: A Machine
-             Learning and Deep Learning Approach},
+  title   = {Machine-Learning Surrogate Models for View Factor Estimation in Benchmark Fire Configurations},
   author  = {Mercado, M. and Pinto, P.E. and Verdugo, I. and Littin, M.
              and Escudero, F. and Demarco, R. and Fuentes, A.},
   journal = {International Journal of Heat and Mass Transfer},
