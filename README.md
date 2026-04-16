@@ -9,7 +9,7 @@
 
 This repository contains the code and data accompanying the paper *"View Factor Estimation via Supervised Learning: A Machine Learning and Deep Learning Approach"*. The work presents a data-driven framework for estimating radiative view factors (VF) using machine learning (ML) and deep learning (DL) surrogate models, benchmarked against high-fidelity contour-integral solutions derived from Stokes' theorem.
 
-Four regression approaches are evaluated — Polynomial Regression, Ridge Regression, Support Vector Regression (SVR), and Multilayer Perceptron (MLP) — across three geometric configurations of increasing complexity relevant to fire science and thermal radiation.
+Four regression approaches are evaluated (Polynomial Regression, Ridge Regression, Support Vector Regression (SVR), and Multilayer Perceptron (MLP)) across three geometric configurations of increasing complexity relevant to fire science and thermal radiation.
 
 ## Key Results
 
