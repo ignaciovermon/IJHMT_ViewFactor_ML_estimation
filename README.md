@@ -44,7 +44,6 @@ Four regression approaches are evaluated (Polynomial Regression, Ridge Regressio
 │   └── data/
 │       └── Case_3.csv
 │
-├── docs/                            # Supplementary documentation
 ├── requirements.txt                 # Python dependencies
 ├── CITATION.cff                     # Machine-readable citation metadata
 ├── CONTRIBUTING.md                  # Contribution policy (read-only repository)
