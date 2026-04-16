@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software or data, please cite it as below."
-title: "View Factor Estimation via Supervised Learning: A Machine Learning and Deep Learning Approach"
+title: "Machine-Learning Surrogate Models for View Factor Estimation in Benchmark Fire Configurations"
 type: software
 authors:
   - family-names: "Mercado"
@@ -12,7 +12,6 @@ authors:
   - family-names: "Verdugo"
     given-names: "I."
     affiliation: "Department of Engineering Sciences, Universidad Andrés Bello"
-    orcid: "https://orcid.org/XXXX-XXXX-XXXX-XXXX"
   - family-names: "Littin"
     given-names: "M."
     affiliation: "Departamento de Industrias, Universidad Técnica Federico Santa María"

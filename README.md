@@ -29,15 +29,20 @@ Four regression approaches are evaluated — Polynomial Regression, Ridge Regres
 │   │   ├── Ridge_case_1.ipynb
 │   │   └── SVR_case_1.ipynb
 │   └── data/
-│       └── factores_forma_uniformes_30000_R_0_1.csv
+│       └── Case_1.csv
 │
 ├── case_2/                          # Cylindrical heater and differential element
 │   ├── code/
+│   │   ├── Neural_network_case_2.ipynb
+│   │   └── Ridge_case_2.ipynb
 │   └── data/
+│       └── Case_2.csv
 │
 ├── case_3/                          # Cone calorimeter and differential element
 │   ├── code/
+│   │   └── Neural_network_case_3.ipynb
 │   └── data/
+│       └── Case_3.csv
 │
 ├── docs/                            # Supplementary documentation
 ├── requirements.txt                 # Python dependencies
@@ -51,15 +56,15 @@ Four regression approaches are evaluated — Polynomial Regression, Ridge Regres
 
 ### Case 1: Rectangular Plate and a Disk
 
-View factor F_pl→disk between a rectangular plate (L × P) and a disk of radius R centered at (h, k) at separation distance d. Dataset: 30,000 samples generated via contour integration. All four ML models are evaluated.
+View factor F_pl→disk between a rectangular plate (L × P) and a disk of radius R centered at (h, k) at separation distance d. Dataset: 37,500 samples generated via contour integration. All four ML models are evaluated.
 
 ### Case 2: Cylindrical Heater and a Differential Element
 
-View factor F_dA→cyl for the I-FIT (Idealized-Firebrand Ignition Test) configuration. A cylindrical heater of radius R_h and length L_h, with a differential element at axial position z and radial distance d. Dataset: 20,000 samples. Ridge and MLP models are evaluated.
+View factor F_dA→cyl for the I-FIT (Idealized-Firebrand Ignition Test) configuration. A cylindrical heater of radius R_h and length L_h, with a differential element at axial position z and radial distance d. Dataset: 40,000 samples. Ridge and MLP models are evaluated.
 
 ### Case 3: Cone Calorimeter and a Differential Element
 
-View factor F_disk→c between a disk-shaped sensor and the helical coil geometry of a cone calorimeter heater (helicoidal-contour model). MLP model only.
+View factor F_disk→c between a disk-shaped sensor and the helical coil geometry of a cone calorimeter heater (helicoidal-contour model). Dataset: 40,400 samples. MLP model only.
 
 ## Getting Started
 
