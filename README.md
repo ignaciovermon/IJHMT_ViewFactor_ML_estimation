@@ -24,23 +24,29 @@ Four regression approaches are evaluated (Polynomial Regression, Ridge Regressio
 ```
 ├── case_1/                          # Rectangular plate and a disk
 │   ├── code/
-│   │   ├── Neural_network_case_1.ipynb
+│   │   ├── Neural_network_case_1.ipynb          # MLP surrogate (h, k, d)
+│   │   ├── Neural_network_case_1_dimensionless.ipynb  # MLP with π-groups (h/d, k/d, L/d, P/d, R/d)
 │   │   ├── Polynomial_case_1.ipynb
 │   │   ├── Ridge_case_1.ipynb
-│   │   └── SVR_case_1.ipynb
+│   │   ├── SVR_case_1.ipynb
+│   │   └── VF_PLACA_DISCO.py                    # Reference contour-integral solver
 │   └── data/
 │       └── Case_1.csv
 │
-├── case_2/                          # Cylindrical heater and differential element
+├── case_2/                          # Cylindrical heater (I-FIT) and differential element
 │   ├── code/
-│   │   ├── Neural_network_case_2.ipynb
-│   │   └── Ridge_case_2.ipynb
+│   │   ├── Neural_network_case_2.ipynb          # MLP surrogate (R, b)
+│   │   ├── Neural_network_case_2_dimensionless.ipynb  # MLP with π-groups (R/H, b/H)
+│   │   ├── Ridge_case_2.ipynb
+│   │   └── VF_IFIT_ALPHA.py                     # Reference contour-integral solver
 │   └── data/
 │       └── Case_2.csv
 │
 ├── case_3/                          # Cone calorimeter and differential element
 │   ├── code/
-│   │   └── Neural_network_case_3.ipynb
+│   │   ├── Neural_network_case_3.ipynb          # MLP surrogate (h, k, p, d)
+│   │   ├── Neural_network_case_3_dimensionless.ipynb  # MLP with π-groups (h/d, k/d)
+│   │   └── VF_CONE_CALORIMETER_MAURO.py         # Reference contour-integral solver
 │   └── data/
 │       └── Case_3.csv
 │
@@ -55,15 +61,42 @@ Four regression approaches are evaluated (Polynomial Regression, Ridge Regressio
 
 ### Case 1: Rectangular Plate and a Disk
 
-View factor F_pl→disk between a rectangular plate (L × P) and a disk of radius R centered at (h, k) at separation distance d. Dataset: 37,500 samples generated via contour integration. All four ML models are evaluated.
+View factor F_pl→disk between a rectangular plate (L × P = 100 × 80 mm) and a disk of radius R centered at (h, k) at separation distance d. Dataset: 37,500 samples generated via contour integration. All four ML models are evaluated.
 
 ### Case 2: Cylindrical Heater and a Differential Element
 
-View factor F_dA→cyl for the I-FIT (Idealized-Firebrand Ignition Test) configuration. A cylindrical heater of radius R_h and length L_h, with a differential element at axial position z and radial distance d. Dataset: 40,000 samples. Ridge and MLP models are evaluated.
+View factor F_dA→cyl for the I-FIT (Idealized-Firebrand Ignition Test) configuration. A cylindrical heater of radius R and height H=46 mm, with a differential element at axial position b. Dataset: 40,000 samples. Ridge and MLP models are evaluated.
 
 ### Case 3: Cone Calorimeter and a Differential Element
 
-View factor F_disk→c between a disk-shaped sensor and the helical coil geometry of a cone calorimeter heater (helicoidal-contour model). Dataset: 40,400 samples. MLP model only.
+View factor F_dA→HC between a differential element and the helical coil geometry of a cone calorimeter heater (ISO 5660-1 / ASTM E1354). Dataset: 40,401 samples. MLP model only.
+
+## Notebook Contents
+
+Each `Neural_network_case_N.ipynb` notebook includes:
+
+- GPU-accelerated training via PyTorch (CUDA)
+- Hyperparameter optimization (Optuna in Case 2)
+- Performance metrics: MSE, RMSE, R², MAPE
+- Tolerance band analysis (percentage of predictions within ±1%, ±2%, ±5% of true value)
+- Comparison against a KNN interpolation baseline (Shepard's method)
+- Uncertainty analysis via Monte Carlo dropout
+- SHAP analysis (GradientExplainer on GPU): bar plot, beeswarm plot, dependence plots
+
+Each `Neural_network_case_N_dimensionless.ipynb` notebook includes:
+
+- Dimensionless feature formulation via Buckingham Pi theorem
+- Same training and evaluation pipeline as the dimensional notebooks
+- Comparison table: dimensional vs. dimensionless model performance
+- SHAP analysis in dimensionless feature space
+
+### Dimensionless parameter sets
+
+| Case | Reference length | Dimensionless features |
+|---|---|---|
+| 1 | d (separation distance) | h/d, k/d, L/d, P/d, R/d |
+| 2 | H (heater height, 46 mm) | R/H, b/H |
+| 3 | d (vertical distance, 30 mm) | h/d, k/d |
 
 ## Getting Started
 
@@ -71,6 +104,7 @@ View factor F_disk→c between a disk-shaped sensor and the helical coil geometr
 
 - Python ≥ 3.10
 - Jupyter Notebook or JupyterLab
+- NVIDIA GPU with CUDA (recommended; notebooks fall back to CPU automatically)
 - Dependencies listed in `requirements.txt`
 
 ### Installation
@@ -94,11 +128,13 @@ The notebooks load data from their respective `data/` directories.
 
 ## Methodology
 
-1. **View factor computation** — High-fidelity reference values via contour integrals (Stokes' theorem) using adaptive quadrature in Python/Mathematica.
+1. **View factor computation** — High-fidelity reference values via contour integrals (Stokes' theorem) using adaptive quadrature in Python (`VF_*.py` scripts).
 2. **Data generation** — Synthetic datasets generated by sampling geometric parameters over physically meaningful domains.
 3. **Model training** — Polynomial, Ridge, SVR, and MLP models trained on 80/20 train-test splits with standardized features.
 4. **Hyperparameter optimization** — Grid Search, Bayesian Optimization (BayesSearchCV), Optuna, and information criteria (AIC/BIC).
 5. **Validation** — Performance assessed via MSE, RMSE, R², MAPE, and APE on held-out test sets.
+6. **Dimensionless analysis** — Buckingham Pi theorem applied to identify physically motivated dimensionless groups; MLP retrained in dimensionless feature space for all three cases.
+7. **Explainability** — SHAP values (GradientExplainer) computed for all MLP models to quantify input feature importance.
 
 ## Citation
 
