@@ -142,12 +142,13 @@ If you use this code or data in your research, please cite:
 
 ```bibtex
 @article{mercado2026viewfactor,
-  title   = {Machine-Learning Surrogate Models for View Factor Estimation in Benchmark Fire Configurations},
-  author  = {Mercado, M. and Pinto, P.E. and Verdugo, I. and Littin, M.
-             and Escudero, F. and Demarco, R. and Fuentes, A.},
+  title   = {Machine-learning surrogate models for view factor estimation in benchmark fire configurations},
+  author  = {Mercado, M. and Pinto, P. E. and Verdugo, I. and Littin, M. and Escudero, F. and Demarco, R. and Fuentes, A.},
   journal = {International Journal of Heat and Mass Transfer},
+  volume  = {269},
+  pages   = {129097},
   year    = {2026},
-  note    = {Manuscript submitted}
+  doi     = {10.1016/j.ijheatmasstransfer.2026.129097}
 }
 ```
 
